@@ -1,0 +1,233 @@
+[gd_scene load_steps=27 format=3 uid="uid://cduyuo6pjwson"]
+
+[ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_eow3j"]
+[ext_resource type="Script" uid="uid://d11cd1nx2dd5n" path="res://game.gd" id="1_fc0e3"]
+[ext_resource type="Script" uid="uid://dgvhbnev8dowm" path="res://scripts/heat_service.gd" id="2_7jktm"]
+[ext_resource type="Script" uid="uid://d1x5rsvv6vse3" path="res://scripts/MazeSettings.gd" id="2_ryrav"]
+[ext_resource type="Script" uid="uid://cnmohrdxqihr0" path="res://addons/twitcher/generated/twitch_user.gd" id="3_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dlveg212uywo5" path="res://instances/pnl_maze.tscn" id="4_eow3j"]
+[ext_resource type="Script" uid="uid://d1io03ynf822o" path="res://scripts/MazeData.gd" id="4_vef74"]
+[ext_resource type="PackedScene" uid="uid://cpvcxvvskfgbb" path="res://instances/pnl_tools.tscn" id="6_j5wjh"]
+[ext_resource type="Script" uid="uid://dcq1bvfrqimqq" path="res://addons/twitcher/chat/twitch_chat.gd" id="7_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://q10dsaf7lk62" path="res://instances/pnl_players.tscn" id="7_vef74"]
+[ext_resource type="FontFile" uid="uid://touqsbxl3m1g" path="res://theme/fonts/Bungee-Regular.otf" id="10_lc2xo"]
+[ext_resource type="Script" uid="uid://8idqinsprd0v" path="res://instances/texture_rect_gif.gd" id="10_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://dvq0x2pm15fjg" path="res://instances/pnl_game_progress.tscn" id="11_215e1"]
+[ext_resource type="SpriteFrames" uid="uid://yoq4unw7vwhm" path="res://graphics/access-heat.gif" id="11_iotsf"]
+
+[sub_resource type="Resource" id="Resource_eow3j"]
+script = ExtResource("2_ryrav")
+maze_size = Vector2i(25, 17)
+maze_seed = "Hypnotik_Games"
+noise_threshold = 0.55
+noise_resolution = 15.0
+bunnies_count = 8
+metadata/_custom_type_script = "uid://d1x5rsvv6vse3"
+
+[sub_resource type="BitMap" id="BitMap_7sc4i"]
+data = {
+"data": PackedByteArray(255, 255, 255, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 1, 0, 0, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 255, 255, 255, 1),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="BitMap" id="BitMap_80cx4"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 80, 85, 1, 0, 0, 0, 64, 85, 85, 5, 0, 0, 0, 85, 85, 21, 0, 0, 0, 68, 16, 85, 0, 0, 0, 16, 84, 84, 1, 0, 0, 64, 85, 65, 5, 0, 0, 0, 85, 21, 17, 0, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="BitMap" id="BitMap_e8heu"]
+data = {
+"data": PackedByteArray(0, 0, 0, 20, 64, 0, 0, 0, 0, 64, 4, 1, 0, 0, 0, 0, 0, 64, 16, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 1, 1, 0, 0, 0, 0, 0, 5, 64, 0, 0, 0, 0),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="BitMap" id="BitMap_rvswv"]
+data = {
+"data": PackedByteArray(0, 0, 0, 52, 192, 0, 8, 0, 0, 80, 6, 1, 160, 0, 2, 0, 0, 96, 16, 0, 0, 32, 0, 0, 67, 0, 0, 128, 4, 0, 22, 9, 0, 32, 2, 0, 64, 4, 0, 128, 72, 131, 1, 128, 128, 0, 32, 0, 13, 64, 0, 0, 0, 0),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="BitMap" id="BitMap_boyg6"]
+data = {
+"data": PackedByteArray(0, 0, 0, 244, 223, 255, 137, 40, 254, 83, 87, 253, 167, 162, 138, 194, 127, 125, 149, 128, 34, 42, 223, 119, 95, 184, 239, 160, 244, 255, 87, 233, 131, 163, 242, 255, 95, 5, 34, 190, 74, 255, 125, 159, 160, 232, 46, 127, 221, 95, 0, 0, 0, 0),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="BitMap" id="BitMap_e36ub"]
+data = {
+"data": PackedByteArray(0, 0, 0, 8, 32, 0, 32, 130, 0, 160, 168, 2, 0, 8, 32, 8, 128, 130, 10, 42, 136, 0, 32, 136, 32, 2, 0, 10, 8, 0, 168, 0, 40, 8, 0, 0, 160, 162, 136, 0, 128, 0, 130, 0, 10, 2, 0, 128, 34, 32, 0, 0, 0, 0),
+"size": Vector2i(25, 17)
+}
+
+[sub_resource type="Resource" id="Resource_hb5m1"]
+script = ExtResource("4_vef74")
+maze_size = Vector2i(25, 17)
+maze_seed = "Hypnotik_Games"
+btm_boundaries = SubResource("BitMap_7sc4i")
+btm_corners = SubResource("BitMap_80cx4")
+btm_walls = SubResource("BitMap_e36ub")
+btm_maze = SubResource("BitMap_boyg6")
+btm_dead_ends = SubResource("BitMap_e8heu")
+btm_dead_ends_paths = SubResource("BitMap_rvswv")
+
+[sub_resource type="Resource" id="Resource_g4ln7"]
+script = ExtResource("3_ryrav")
+id = "443367221"
+login = "iraddev"
+display_name = "iRadDev"
+type = ""
+broadcaster_type = "affiliate"
+description = "My name is Dario, I am an architect and I code and game dev. I'm working on a Tower Defence game with some RTS elements blended into it. You will see map generations, programmer's art in Krita and development in Godot 4. Enjoy!"
+profile_image_url = "https://static-cdn.jtvnw.net/jtv_user_pictures/cceb39b3-01c2-41b2-9309-a9c9697372cb-profile_image-300x300.png"
+offline_image_url = ""
+view_count = 0
+email = ""
+created_at = "2019-06-22T15:18:14Z"
+
+[sub_resource type="Resource" id="Resource_215e1"]
+script = ExtResource("3_ryrav")
+id = "443367221"
+login = "iraddev"
+display_name = "iRadDev"
+type = ""
+broadcaster_type = "affiliate"
+description = "My name is Dario, I am an architect and I code and game dev. I'm working on a Tower Defence game with some RTS elements blended into it. You will see map generations, programmer's art in Krita and development in Godot 4. Enjoy!"
+profile_image_url = "https://static-cdn.jtvnw.net/jtv_user_pictures/cceb39b3-01c2-41b2-9309-a9c9697372cb-profile_image-300x300.png"
+offline_image_url = ""
+view_count = 0
+email = ""
+created_at = "2019-06-22T15:18:14Z"
+
+[sub_resource type="Resource" id="Resource_7sc4i"]
+script = ExtResource("3_ryrav")
+id = "443367221"
+login = "iraddev"
+display_name = "iRadDev"
+type = ""
+broadcaster_type = "affiliate"
+description = "My name is Dario, I am an architect and I code and game dev. I'm working on a Tower Defence game with some RTS elements blended into it. You will see map generations, programmer's art in Krita and development in Godot 4. Enjoy!"
+profile_image_url = "https://static-cdn.jtvnw.net/jtv_user_pictures/cceb39b3-01c2-41b2-9309-a9c9697372cb-profile_image-300x300.png"
+offline_image_url = ""
+view_count = 0
+email = ""
+created_at = "2019-06-22T15:18:14Z"
+
+[sub_resource type="LabelSettings" id="LabelSettings_215e1"]
+font = ExtResource("10_lc2xo")
+font_size = 28
+
+[node name="game" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_eow3j")
+script = ExtResource("1_fc0e3")
+maze_settings = SubResource("Resource_eow3j")
+maze_data = SubResource("Resource_hb5m1")
+
+[node name="Modules" type="Node" parent="."]
+
+[node name="HeatService" type="Node" parent="Modules"]
+script = ExtResource("2_7jktm")
+broadcaster = SubResource("Resource_g4ln7")
+metadata/_custom_type_script = "uid://dgvhbnev8dowm"
+
+[node name="TwitchChat" type="Node" parent="Modules" node_paths=PackedStringArray("media_loader", "eventsub", "api")]
+script = ExtResource("7_lc2xo")
+broadcaster_user = SubResource("Resource_215e1")
+sender_user = SubResource("Resource_7sc4i")
+media_loader = NodePath("")
+eventsub = NodePath("")
+api = NodePath("")
+metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
+
+[node name="split" type="HSplitContainer" parent="."]
+layout_mode = 2
+
+[node name="pnl_left" type="PanelContainer" parent="split"]
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="split/pnl_left"]
+layout_mode = 2
+
+[node name="pnl_tools" parent="split/pnl_left/vb" instance=ExtResource("6_j5wjh")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="pnl_players" parent="split/pnl_left/vb" instance=ExtResource("7_vef74")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="split_right" type="HSplitContainer" parent="split"]
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="split/split_right"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lb_title" type="Label" parent="split/split_right/vb"]
+layout_mode = 2
+text = "Catch the Fins!"
+label_settings = SubResource("LabelSettings_215e1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pnl_game_progress" parent="split/split_right/vb" instance=ExtResource("11_215e1")]
+layout_mode = 2
+
+[node name="pnl_maze" parent="split/split_right/vb" instance=ExtResource("4_eow3j")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pnl_bot" type="PanelContainer" parent="split/split_right/vb"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="pnl_info" type="PanelContainer" parent="split/split_right"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="split/split_right/pnl_info"]
+layout_mode = 2
+
+[node name="lb_info" type="RichTextLabel" parent="split/split_right/pnl_info/vb"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Welcome to Catch the Fins GAME!
+
+Chat:
+- !join to join
+- !leave to leave
+- after join any text with [WASD directions] chained together will be parsed as movement
+- eg. wwwaxxx <- moves up three times then left
+
+Heat Extension:
+Verify your heat extension then refresh the browser
+- click once to join
+- click more to path to a cell
+
+Catch the Fins! (to be implemented)"
+fit_content = true
+
+[node name="tex_authorize" type="Control" parent="split/split_right/pnl_info/vb"]
+custom_minimum_size = Vector2(337, 328)
+layout_mode = 2
+script = ExtResource("10_mfdv2")
+sprite_frames = ExtResource("11_iotsf")
+stretch_mode = 5
+metadata/_custom_type_script = "uid://8idqinsprd0v"
+
+[node name="debug_overlay" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="input_event" from="Modules/HeatService" to="." method="_on_heat_service_input_event"]
+[connection signal="message_received" from="Modules/TwitchChat" to="." method="_on_twitch_chat_message_received"]
+[connection signal="draw" from="debug_overlay" to="." method="_on_click_overlay_draw"]

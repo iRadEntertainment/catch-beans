@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs11j21tiy0b7"]
+
+[ext_resource type="SpriteFrames" uid="uid://yoq4unw7vwhm" path="res://graphics/access-heat.gif" id="1_1lw53"]
+[ext_resource type="Script" uid="uid://8idqinsprd0v" path="res://instances/texture_rect_gif.gd" id="1_fetyl"]
+
+[node name="TextureRectGif" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(337, 328)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 733.0
+offset_bottom = 466.0
+script = ExtResource("1_fetyl")
+sprite_frames = ExtResource("1_1lw53")
+stretch_mode = 5

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://q10dsaf7lk62"]
+
+[ext_resource type="Script" uid="uid://tt1s831awvkl" path="res://instances/pnl_players.gd" id="1_siqwo"]
+[ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_wiu1i"]
+[ext_resource type="StyleBox" uid="uid://behql6kuhdfgw" path="res://theme/pnl_dark.stylebox" id="2_wiu1i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_siqwo"]
+
+[node name="pnl_players" type="PanelContainer"]
+offset_right = 264.0
+offset_bottom = 530.0
+size_flags_vertical = 3
+theme = ExtResource("1_wiu1i")
+theme_override_styles/panel = ExtResource("2_wiu1i")
+script = ExtResource("1_siqwo")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="lb_title" type="Label" parent="vb"]
+layout_mode = 2
+text = "Player list"
+label_settings = SubResource("LabelSettings_siqwo")
+
+[node name="sep" type="HSeparator" parent="vb"]
+layout_mode = 2
+
+[node name="scr" type="ScrollContainer" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="vb_list_players" type="VBoxContainer" parent="vb/scr"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

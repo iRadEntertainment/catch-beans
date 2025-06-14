@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpvcxvvskfgbb"]
+
+[ext_resource type="Script" uid="uid://1ndduchq1b2p" path="res://instances/pnl_tools.gd" id="1_4ljis"]
+[ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_vaxje"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vaxje"]
+
+[node name="pnl_tools" type="PanelContainer"]
+custom_minimum_size = Vector2(256, 0)
+theme = ExtResource("1_vaxje")
+script = ExtResource("1_4ljis")
+
+[node name="vb" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="pnl_generate" type="PanelContainer" parent="vb"]
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="vb/pnl_generate"]
+layout_mode = 2
+
+[node name="lb_title" type="Label" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+text = "Generate Maze"
+label_settings = SubResource("LabelSettings_vaxje")
+
+[node name="sep" type="HSeparator" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+
+[node name="hb" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+
+[node name="lb" type="Label" parent="vb/pnl_generate/vb/hb"]
+layout_mode = 2
+text = "seed"
+
+[node name="ln_seed" type="LineEdit" parent="vb/pnl_generate/vb/hb"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Temptic404"
+placeholder_text = "maze seed"
+
+[node name="hb2" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+
+[node name="lb" type="Label" parent="vb/pnl_generate/vb/hb2"]
+layout_mode = 2
+text = "size"
+
+[node name="sp_x" type="SpinBox" parent="vb/pnl_generate/vb/hb2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 3.0
+max_value = 81.0
+step = 2.0
+value = 15.0
+
+[node name="lb2" type="Label" parent="vb/pnl_generate/vb/hb2"]
+layout_mode = 2
+text = "x"
+
+[node name="sp_y" type="SpinBox" parent="vb/pnl_generate/vb/hb2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 3.0
+max_value = 81.0
+step = 2.0
+value = 15.0
+
+[node name="lb3" type="Label" parent="vb/pnl_generate/vb/hb2"]
+layout_mode = 2
+text = "y"
+
+[node name="hb3" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+
+[node name="lb" type="Label" parent="vb/pnl_generate/vb/hb3"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "noise treshhold"
+
+[node name="sl_treshold" type="HSlider" parent="vb/pnl_generate/vb/hb3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.005
+value = 0.5
+
+[node name="lb2" type="Label" parent="vb/pnl_generate/vb/hb3"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "0.560"
+
+[node name="hb4" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+
+[node name="lb" type="Label" parent="vb/pnl_generate/vb/hb4"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "noise resolution"
+
+[node name="sl_resolution" type="HSlider" parent="vb/pnl_generate/vb/hb4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+step = 0.1
+value = 15.0
+
+[node name="lb2" type="Label" parent="vb/pnl_generate/vb/hb4"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "15"
+
+[node name="btn_generate" type="Button" parent="vb/pnl_generate/vb"]
+layout_mode = 2
+text = "Generate"
+
+[connection signal="pressed" from="vb/pnl_generate/vb/btn_generate" to="." method="_on_btn_generate_pressed"]

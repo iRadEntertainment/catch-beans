@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvbmhtrettp58"]
+
+[ext_resource type="Texture2D" uid="uid://wm7gapxycfoo" path="res://graphics/line_dotted.png" id="1_f5pao"]
+
+[node name="Line2D" type="Line2D"]
+texture_repeat = 2
+points = PackedVector2Array(431, 104, 571, 138, 747, 130, 747, 147, 766, 147, 766, 179)
+default_color = Color(0.629158, 0, 0.144207, 1)
+texture = ExtResource("1_f5pao")
+texture_mode = 1
+joint_mode = 1

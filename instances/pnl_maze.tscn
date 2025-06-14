@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlveg212uywo5"]
+
+[ext_resource type="Script" uid="uid://bbw7vfljawbfe" path="res://instances/pnl_maze.gd" id="1_jm2b6"]
+[ext_resource type="PackedScene" uid="uid://cvbmhtrettp58" path="res://instances/path_line.tscn" id="2_jm2b6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm2b6"]
+bg_color = Color(0.0126165, 0.20724, 0.287094, 1)
+border_color = Color(0.325339, 0.0326677, 0.318235, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Image" id="Image_jm2b6"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 0, 0, 0, 0, 255, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 0, 0, 255, 0, 0, 0, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 255, 255, 255, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 0, 0, 255, 0, 255, 0, 0, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 0, 0, 255, 255, 255, 0, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 0, 0, 0, 0, 255, 0, 0, 0, 255, 0, 255, 255, 255, 0, 0, 255, 255, 255, 0, 255, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 255, 0, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 0, 255, 0, 0, 0, 0, 0, 255, 0, 0, 0, 255, 0, 255, 0, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 255, 255, 0, 0, 255, 0, 0, 0, 0, 0, 255, 0, 255, 255, 255, 0, 0, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 255, 255, 255, 255, 255, 255, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 0, 255, 0, 255, 255, 255, 0, 0, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 255, 255, 255, 0, 255, 255, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 0, 0, 0, 255, 255, 255, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 255, 0, 255, 255, 255, 0, 255, 255, 255, 255, 255, 0, 255, 0, 255, 0, 255, 0, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "Lum8",
+"height": 25,
+"mipmaps": false,
+"width": 25
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_l5u1a"]
+image = SubResource("Image_jm2b6")
+
+[node name="pnl_maze" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jm2b6")
+script = ExtResource("1_jm2b6")
+
+[node name="game_base_maze" type="TextureRect" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("ImageTexture_l5u1a")
+stretch_mode = 5
+
+[node name="lines" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Line2D" parent="lines" instance=ExtResource("2_jm2b6")]
+points = PackedVector2Array(552, 158, 571, 138, 587, 153, 596, 130, 626, 141, 747, 130, 747, 147, 766, 147, 766, 179)
+
+[node name="bunnies" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="players" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

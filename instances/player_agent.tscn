@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://e4r7xlhx87bh"]
+
+[ext_resource type="Texture2D" uid="uid://id5wo2isyu1p" path="res://graphics/fin_bg.png" id="1_iymbn"]
+[ext_resource type="Shader" uid="uid://tfakrr1mi58n" path="res://graphics/circle.gdshader" id="2_nnh0l"]
+[ext_resource type="Script" uid="uid://bvu3wqjs36uj1" path="res://instances/player_agent.gd" id="2_qjt2s"]
+[ext_resource type="FontFile" uid="uid://touqsbxl3m1g" path="res://theme/fonts/Bungee-Regular.otf" id="3_spu5n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfmwg"]
+shader = ExtResource("2_nnh0l")
+shader_parameter/radius = 1.0
+shader_parameter/feather = 0.01
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjt2s"]
+font = ExtResource("3_spu5n")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.196078)
+shadow_offset = Vector2(0, 0)
+
+[node name="player_agent" type="Node2D"]
+script = ExtResource("2_qjt2s")
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_lfmwg")
+scale = Vector2(0.236287, 0.236287)
+texture = ExtResource("1_iymbn")
+
+[node name="lb_name" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -86.0
+offset_top = 35.0
+offset_right = 86.0
+offset_bottom = 58.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "pgorley"
+label_settings = SubResource("LabelSettings_qjt2s")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

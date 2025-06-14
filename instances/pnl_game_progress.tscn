@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvq0x2pm15fjg"]
+
+[ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_f4abj"]
+[ext_resource type="Script" uid="uid://c2g6tom0kcpom" path="res://instances/pnl_game_progress.gd" id="2_g1fri"]
+[ext_resource type="FontFile" uid="uid://bqvdwdtmyxyu7" path="res://theme/fonts/Exo-Black.otf" id="3_g1fri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_geide"]
+font = ExtResource("3_g1fri")
+font_size = 32
+font_color = Color(0.0669183, 0.48623, 0.650953, 1)
+
+[node name="pnl_game_progress" type="PanelContainer"]
+offset_right = 1160.0
+offset_bottom = 40.0
+theme = ExtResource("1_f4abj")
+script = ExtResource("2_g1fri")
+
+[node name="vb" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="lb_bunnies_count2" type="Label" parent="vb"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fins left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lb_bunnies_count" type="Label" parent="vb"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "12/12"
+label_settings = SubResource("LabelSettings_geide")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="vb"]
+layout_mode = 2
+
+[node name="progress_time_left" type="ProgressBar" parent="vb"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.001
+value = 0.4
+show_percentage = false

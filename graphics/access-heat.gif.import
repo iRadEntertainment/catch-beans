@@ -1,0 +1,14 @@
+[remap]
+
+importer="gif.animated.texture.plugin"
+type="SpriteFrames"
+uid="uid://yoq4unw7vwhm"
+path="res://.godot/imported/access-heat.gif-c8332475e9b5c2eca36bf20f3404a447.res"
+
+[deps]
+
+source_file="res://graphics/access-heat.gif"
+dest_files=["res://.godot/imported/access-heat.gif-c8332475e9b5c2eca36bf20f3404a447.res"]
+
+[params]
+
