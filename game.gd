@@ -78,6 +78,7 @@ func setup_twitcher() -> void:
 func add_commands() -> void:
 	Twitch.add_command("join", _on_chat_user_join)
 	Twitch.add_command("leave", _on_chat_user_leave)
+	Twitch.add_command("cat", _on_chat_user_cat)
 #endregion
 
 
@@ -207,6 +208,13 @@ func _on_chat_user_leave(
 		) -> void:
 	Twitch.chat("%s you can NEVER leave!" % from_username)
 
+
+func _on_chat_user_cat(
+			from_username: String,
+			_info: TwitchCommandInfo,
+			_args: PackedStringArray
+		) -> void:
+	Twitch.chat("🐈")
 
 
 func _on_twitch_chat_message_received(t_message: TwitchChatMessage) -> void:
