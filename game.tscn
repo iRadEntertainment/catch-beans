@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cduyuo6pjwson"]
+[gd_scene load_steps=29 format=3 uid="uid://cduyuo6pjwson"]
 
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://d11cd1nx2dd5n" path="res://game.gd" id="1_fc0e3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://8idqinsprd0v" path="res://instances/texture_rect_gif.gd" id="10_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://dvq0x2pm15fjg" path="res://instances/pnl_game_progress.tscn" id="11_215e1"]
 [ext_resource type="SpriteFrames" uid="uid://yoq4unw7vwhm" path="res://graphics/access-heat.gif" id="11_iotsf"]
+[ext_resource type="Texture2D" uid="uid://ylp3odvbeqnr" path="res://graphics/palette.png" id="15_7sc4i"]
 
 [sub_resource type="Resource" id="Resource_eow3j"]
 script = ExtResource("2_ryrav")
@@ -113,9 +114,12 @@ view_count = 0
 email = ""
 created_at = "2019-06-22T15:18:14Z"
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80cx4"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_215e1"]
 font = ExtResource("10_lc2xo")
 font_size = 28
+font_color = Color(0, 0.72549, 0.745098, 1)
 
 [node name="game" type="PanelContainer"]
 anchors_preset = 15
@@ -149,6 +153,7 @@ layout_mode = 2
 
 [node name="pnl_left" type="PanelContainer" parent="split"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_80cx4")
 
 [node name="vb" type="VBoxContainer" parent="split/pnl_left"]
 layout_mode = 2
@@ -227,6 +232,10 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="Palette" type="Sprite2D" parent="."]
+position = Vector2(2685, 483)
+texture = ExtResource("15_7sc4i")
 
 [connection signal="input_event" from="Modules/HeatService" to="." method="_on_heat_service_input_event"]
 [connection signal="message_received" from="Modules/TwitchChat" to="." method="_on_twitch_chat_message_received"]

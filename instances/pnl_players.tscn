@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://behql6kuhdfgw" path="res://theme/pnl_dark.stylebox" id="2_wiu1i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_siqwo"]
+font_color = Color(1, 0.933333, 0.8, 1)
 
 [node name="pnl_players" type="PanelContainer"]
 offset_right = 264.0

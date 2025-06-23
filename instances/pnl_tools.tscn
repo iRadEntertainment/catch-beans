@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpvcxvvskfgbb"]
+[gd_scene load_steps=5 format=3 uid="uid://cpvcxvvskfgbb"]
 
 [ext_resource type="Script" uid="uid://1ndduchq1b2p" path="res://instances/pnl_tools.gd" id="1_4ljis"]
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_vaxje"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vaxje"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_vaxje"]
+font_size = 23
+font_color = Color(1, 0.411765, 0.45098, 1)
 
 [node name="pnl_tools" type="PanelContainer"]
 custom_minimum_size = Vector2(256, 0)
 theme = ExtResource("1_vaxje")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vaxje")
 script = ExtResource("1_4ljis")
 
 [node name="vb" type="VBoxContainer" parent="."]

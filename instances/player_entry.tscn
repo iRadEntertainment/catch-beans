@@ -1,27 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwxbvxdqo0fvp"]
+[gd_scene load_steps=9 format=3 uid="uid://bwxbvxdqo0fvp"]
 
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_ix8j4"]
 [ext_resource type="Script" uid="uid://b6l3j77diyt01" path="res://instances/player_entry.gd" id="1_sn12l"]
 [ext_resource type="Texture2D" uid="uid://id5wo2isyu1p" path="res://graphics/fin_bg.png" id="2_cucqx"]
-[ext_resource type="FontFile" uid="uid://cy2eujbt3g2fk" path="res://theme/fonts/Exo-Medium.otf" id="3_thhbt"]
 [ext_resource type="Texture2D" uid="uid://buc3o2og7ivcv" path="res://theme/UI/arrow-down-circle-fill.png" id="4_ix8j4"]
 [ext_resource type="FontFile" uid="uid://bqvdwdtmyxyu7" path="res://theme/fonts/Exo-Black.otf" id="5_x3c16"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_thhbt"]
-font = ExtResource("3_thhbt")
-font_size = 18
-
 [sub_resource type="LabelSettings" id="LabelSettings_wkjnn"]
+font_color = Color(1, 0.411765, 0.45098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ahpqt"]
 font = ExtResource("5_x3c16")
 font_size = 24
-font_color = Color(0.799935, 0.140159, 0.284678, 1)
+font_color = Color(1, 0.411765, 0.45098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ne0m6"]
 font = ExtResource("5_x3c16")
 font_size = 24
-font_color = Color(0.0669183, 0.48623, 0.650953, 1)
+font_color = Color(0, 0.72549, 0.745098, 1)
 
 [node name="player_entry" type="PanelContainer"]
 offset_right = 299.0
@@ -29,13 +25,10 @@ offset_bottom = 88.0
 theme = ExtResource("1_ix8j4")
 script = ExtResource("1_sn12l")
 
-[node name="vb" type="VBoxContainer" parent="."]
+[node name="hb" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="hb" type="HBoxContainer" parent="vb"]
-layout_mode = 2
-
-[node name="tex_profile_pic" type="TextureRect" parent="vb/hb"]
+[node name="tex_profile_pic" type="TextureRect" parent="hb"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
@@ -43,63 +36,69 @@ texture = ExtResource("2_cucqx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="lb_display_name" type="Label" parent="vb/hb"]
+[node name="vb" type="VBoxContainer" parent="hb"]
+layout_mode = 2
+
+[node name="lb_display_name" type="Label" parent="hb/vb"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "finisfine"
-label_settings = SubResource("LabelSettings_thhbt")
 
-[node name="grid_score" type="GridContainer" parent="vb/hb"]
+[node name="cnt_dirs" type="HFlowContainer" parent="hb/vb"]
+unique_name_in_owner = true
+modulate = Color(1, 0.411765, 0.45098, 1)
 layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+
+[node name="dir01" type="TextureRect" parent="hb/vb/cnt_dirs"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_ix8j4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="dir02" type="TextureRect" parent="hb/vb/cnt_dirs"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_ix8j4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="dir03" type="TextureRect" parent="hb/vb/cnt_dirs"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_ix8j4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="grid_score" type="GridContainer" parent="hb"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="lb1" type="Label" parent="vb/hb/grid_score"]
+[node name="lb1" type="Label" parent="hb/grid_score"]
 layout_mode = 2
 text = "catch"
 label_settings = SubResource("LabelSettings_wkjnn")
 
-[node name="lb_catch" type="Label" parent="vb/hb/grid_score"]
+[node name="lb_catch" type="Label" parent="hb/grid_score"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3"
 label_settings = SubResource("LabelSettings_ahpqt")
 
-[node name="lb2" type="Label" parent="vb/hb/grid_score"]
+[node name="lb2" type="Label" parent="hb/grid_score"]
 layout_mode = 2
 text = "assist"
 label_settings = SubResource("LabelSettings_wkjnn")
 
-[node name="lb_assist" type="Label" parent="vb/hb/grid_score"]
+[node name="lb_assist" type="Label" parent="hb/grid_score"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "5"
 label_settings = SubResource("LabelSettings_ne0m6")
-
-[node name="cnt_dirs" type="HFlowContainer" parent="vb"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-
-[node name="dir01" type="TextureRect" parent="vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="dir02" type="TextureRect" parent="vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="dir03" type="TextureRect" parent="vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
