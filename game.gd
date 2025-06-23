@@ -24,7 +24,7 @@ signal bunnies_moves_finished
 var last_click: Vector2
 
 
-
+# i was here
 func _ready() -> void:
 	pnl_maze.game = self
 	l.enabled = true
@@ -144,7 +144,13 @@ func get_players_count_with_moves() -> int:
 
 
 func check_and_move_bunnies(check_pos: Vector2i) -> void:
-	var player: PlayerAgent = state.get_players_at_pos(check_pos).front()
+	var players_at_pos = state.get_players_at_pos(check_pos)
+	
+	var player: PlayerAgent
+	
+	if players_at_pos:
+		player = state.get_players_at_pos(check_pos).front()
+	
 	if player:
 		var bunnies_catched: Array[BunnyAgent] = state.get_bunnies_at_pos(check_pos)
 		for bunny: BunnyAgent in bunnies_catched:

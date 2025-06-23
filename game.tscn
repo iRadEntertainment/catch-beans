@@ -139,9 +139,9 @@ metadata/_custom_type_script = "uid://dgvhbnev8dowm"
 script = ExtResource("7_lc2xo")
 broadcaster_user = SubResource("Resource_215e1")
 sender_user = SubResource("Resource_7sc4i")
-media_loader = NodePath("")
-eventsub = NodePath("")
-api = NodePath("")
+media_loader = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/MediaLoader")
+eventsub = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/EventSub")
+api = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/API")
 metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
 
 [node name="split" type="HSplitContainer" parent="."]
