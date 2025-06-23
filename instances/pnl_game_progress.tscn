@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_geide"]
 font = ExtResource("3_g1fri")
 font_size = 32
-font_color = Color(0.0669183, 0.48623, 0.650953, 1)
+font_color = Color(0.0823529, 0.470588, 0.54902, 1)
 
 [node name="pnl_game_progress" type="PanelContainer"]
 offset_right = 1160.0
