@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvq0x2pm15fjg"]
+[gd_scene load_steps=7 format=3 uid="uid://dvq0x2pm15fjg"]
 
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_f4abj"]
 [ext_resource type="Script" uid="uid://c2g6tom0kcpom" path="res://instances/pnl_game_progress.gd" id="2_g1fri"]
@@ -10,9 +10,12 @@ font = ExtResource("3_g1fri")
 font_size = 32
 font_color = Color(1, 0.411765, 0.45098, 1)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_geide"]
+blend_mode = 1
+
 [node name="pnl_game_progress" type="PanelContainer"]
-offset_right = 1160.0
-offset_bottom = 40.0
+offset_right = 1237.0
+offset_bottom = 75.0
 theme = ExtResource("1_f4abj")
 script = ExtResource("2_g1fri")
 
@@ -46,15 +49,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.001
-value = 0.8
+value = 0.215
 show_percentage = false
 
 [node name="TextureRect" type="TextureRect" parent="vb/progress_time_left"]
-modulate = Color(1, 1, 1, 0.0784314)
-layout_mode = 0
-offset_left = -3.0
-offset_top = -26.0
-offset_right = 128.0
-offset_bottom = 104.0
+modulate = Color(1, 1, 1, 0.34902)
+material = SubResource("CanvasItemMaterial_geide")
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -69.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_geide")
 expand_mode = 1

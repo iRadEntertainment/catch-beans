@@ -79,6 +79,7 @@ func add_commands() -> void:
 	Twitch.add_command("join", _on_chat_user_join)
 	Twitch.add_command("leave", _on_chat_user_leave)
 	Twitch.add_command("cat", _on_chat_user_cat)
+	Twitch.add_command("new", _on_chat_new)
 #endregion
 
 
@@ -210,11 +211,20 @@ func _on_chat_user_leave(
 
 
 func _on_chat_user_cat(
-			from_username: String,
+			_from_username: String,
 			_info: TwitchCommandInfo,
 			_args: PackedStringArray
 		) -> void:
 	Twitch.chat("🐈")
+
+
+func _on_chat_new(
+			_from_username: String,
+			_info: TwitchCommandInfo,
+			args: PackedStringArray
+		) -> void:
+	maze_settings.maze_seed = str(args[0])
+	generate_maze()
 
 
 func _on_twitch_chat_message_received(t_message: TwitchChatMessage) -> void:
