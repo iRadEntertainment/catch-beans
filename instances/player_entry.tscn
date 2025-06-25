@@ -19,8 +19,9 @@ font_size = 24
 font_color = Color(0, 0.72549, 0.745098, 1)
 
 [node name="player_entry" type="PanelContainer"]
-offset_right = 299.0
-offset_bottom = 88.0
+custom_minimum_size = Vector2(300, 0)
+offset_right = 293.0
+offset_bottom = 96.0
 theme = ExtResource("1_ix8j4")
 script = ExtResource("1_sn12l")
 
@@ -42,8 +43,8 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 25
 text = "finisfine"
 
 [node name="grid_score" type="GridContainer" parent="hb"]

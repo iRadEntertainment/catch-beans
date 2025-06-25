@@ -12,7 +12,7 @@ font_color = Color(1, 0.411765, 0.45098, 1)
 [node name="pnl_tools" type="PanelContainer"]
 custom_minimum_size = Vector2(256, 0)
 offset_right = 499.0
-offset_bottom = 270.0
+offset_bottom = 157.0
 theme = ExtResource("1_vaxje")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vaxje")
 script = ExtResource("1_4ljis")
@@ -135,4 +135,26 @@ text = "15"
 layout_mode = 2
 text = "Generate"
 
+[node name="pnl_utils" type="PanelContainer" parent="vb"]
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="vb/pnl_utils"]
+layout_mode = 2
+
+[node name="lb_title" type="Label" parent="vb/pnl_utils/vb"]
+visible = false
+layout_mode = 2
+text = "Maze"
+label_settings = SubResource("LabelSettings_vaxje")
+horizontal_alignment = 1
+
+[node name="sep" type="HSeparator" parent="vb/pnl_utils/vb"]
+visible = false
+layout_mode = 2
+
+[node name="btn_git" type="Button" parent="vb/pnl_utils/vb"]
+layout_mode = 2
+text = "Git repository"
+
 [connection signal="pressed" from="vb/pnl_generate/vb/btn_generate" to="." method="_on_btn_generate_pressed"]
+[connection signal="pressed" from="vb/pnl_utils/vb/btn_git" to="." method="_on_btn_git_pressed"]

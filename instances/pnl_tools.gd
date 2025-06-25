@@ -24,3 +24,8 @@ func _on_btn_generate_pressed() -> void:
 	settings.noise_threshold = %sl_treshold.value
 	settings.noise_resolution = %sl_resolution.value
 	generate_maze_pressed.emit(settings)
+
+
+func _on_btn_git_pressed() -> void:
+	Twitch.chat("Check the repository of this game here on github: https://github.com/iRadEntertainment/catch-beans")
+	OS.shell_open("https://github.com/iRadEntertainment/catch-beans")
