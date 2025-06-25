@@ -2,7 +2,9 @@ extends Resource
 class_name GameState
 
 
+
 var game: Game
+var settings: MazeSettings
 var maze_data: MazeData:
 	get(): return game.maze_data
 
@@ -16,10 +18,17 @@ var bunnies_agents: Array[BunnyAgent] = []
 var player_movement_processing: bool = false
 var checking_ids: Array[int] = []
 
-#signal player_added(player: PlayerAgent)
-#signal bunny_added(bunny: BunnyAgent)
-#signal player_removed(player: PlayerAgent)
-#signal bunny_removed(bunny: BunnyAgent)
+enum State{STOPPED, AWAITING_PLAYERS, STARTING, STARTED, CLOSING}
+var state: State = State.STOPPED
+
+var level: int = 1
+var bunnies_left: int:
+	get(): return bunnies_agents.size()
+
+
+signal game_state_changed(state: State)
+signal level_win
+signal level_lose
 
 
 func _init(_game: Game) -> void:

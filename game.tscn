@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cduyuo6pjwson"]
+[gd_scene load_steps=28 format=3 uid="uid://cduyuo6pjwson"]
 
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://d11cd1nx2dd5n" path="res://game.gd" id="1_fc0e3"]
@@ -17,59 +17,61 @@
 
 [sub_resource type="Resource" id="Resource_eow3j"]
 script = ExtResource("2_ryrav")
-maze_size = Vector2i(25, 17)
+maze_size_preset = 0
+maze_size = Vector2i(19, 13)
 maze_seed = "Hypnotik_Games"
 noise_threshold = 0.55
 noise_resolution = 15.0
 bunnies_count = 8
+level_time = 60.0
 metadata/_custom_type_script = "uid://d1x5rsvv6vse3"
+
+[sub_resource type="BitMap" id="BitMap_215e1"]
+data = {
+"data": PackedByteArray(255, 255, 15, 0, 96, 0, 0, 3, 0, 24, 0, 192, 0, 0, 6, 0, 48, 0, 128, 1, 0, 12, 0, 96, 0, 0, 3, 0, 248, 255, 127),
+"size": Vector2i(19, 13)
+}
 
 [sub_resource type="BitMap" id="BitMap_7sc4i"]
 data = {
-"data": PackedByteArray(255, 255, 255, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 1, 0, 0, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 255, 255, 255, 1),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 0, 0, 0, 85, 20, 0, 0, 64, 81, 21, 0, 0, 80, 85, 5, 0, 0, 68, 1, 1, 0, 0, 65, 1, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_80cx4"]
 data = {
-"data": PackedByteArray(0, 0, 0, 0, 0, 0, 80, 85, 1, 0, 0, 0, 64, 85, 85, 5, 0, 0, 0, 85, 85, 21, 0, 0, 0, 68, 16, 85, 0, 0, 0, 16, 84, 84, 1, 0, 0, 64, 85, 65, 5, 0, 0, 0, 85, 21, 17, 0, 0, 0, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 80, 0, 1, 0, 0, 16, 0, 0, 0, 0, 0, 0, 1, 0, 64, 16, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_e8heu"]
 data = {
-"data": PackedByteArray(0, 0, 0, 20, 64, 0, 0, 0, 0, 64, 4, 1, 0, 0, 0, 0, 0, 64, 16, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 1, 1, 0, 0, 0, 0, 0, 5, 64, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 208, 3, 131, 0, 0, 52, 0, 32, 0, 0, 0, 0, 1, 0, 200, 48, 64, 0, 0, 18, 0, 128, 0, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_rvswv"]
 data = {
-"data": PackedByteArray(0, 0, 0, 52, 192, 0, 8, 0, 0, 80, 6, 1, 160, 0, 2, 0, 0, 96, 16, 0, 0, 32, 0, 0, 67, 0, 0, 128, 4, 0, 22, 9, 0, 32, 2, 0, 64, 4, 0, 128, 72, 131, 1, 128, 128, 0, 32, 0, 13, 64, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 208, 127, 159, 160, 227, 244, 125, 39, 142, 10, 255, 87, 1, 136, 202, 247, 95, 56, 254, 210, 255, 159, 62, 254, 252, 255, 7, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_boyg6"]
 data = {
-"data": PackedByteArray(0, 0, 0, 244, 223, 255, 137, 40, 254, 83, 87, 253, 167, 162, 138, 194, 127, 125, 149, 128, 34, 42, 223, 119, 95, 184, 239, 160, 244, 255, 87, 233, 131, 163, 242, 255, 95, 5, 34, 190, 74, 255, 125, 159, 160, 232, 46, 127, 221, 95, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 32, 128, 0, 10, 8, 8, 130, 128, 32, 32, 0, 168, 168, 34, 0, 8, 32, 130, 0, 32, 0, 0, 128, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
-[sub_resource type="BitMap" id="BitMap_e36ub"]
-data = {
-"data": PackedByteArray(0, 0, 0, 8, 32, 0, 32, 130, 0, 160, 168, 2, 0, 8, 32, 8, 128, 130, 10, 42, 136, 0, 32, 136, 32, 2, 0, 10, 8, 0, 168, 0, 40, 8, 0, 0, 160, 162, 136, 0, 128, 0, 130, 0, 10, 2, 0, 128, 34, 32, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
-}
-
-[sub_resource type="Resource" id="Resource_hb5m1"]
+[sub_resource type="Resource" id="Resource_e36ub"]
 script = ExtResource("4_vef74")
-maze_size = Vector2i(25, 17)
+maze_size = Vector2i(19, 13)
 maze_seed = "Hypnotik_Games"
-btm_boundaries = SubResource("BitMap_7sc4i")
-btm_corners = SubResource("BitMap_80cx4")
-btm_walls = SubResource("BitMap_e36ub")
-btm_maze = SubResource("BitMap_boyg6")
-btm_dead_ends = SubResource("BitMap_e8heu")
-btm_dead_ends_paths = SubResource("BitMap_rvswv")
+btm_boundaries = SubResource("BitMap_215e1")
+btm_corners = SubResource("BitMap_7sc4i")
+btm_walls = SubResource("BitMap_boyg6")
+btm_maze = SubResource("BitMap_rvswv")
+btm_dead_ends = SubResource("BitMap_80cx4")
+btm_dead_ends_paths = SubResource("BitMap_e8heu")
 
 [sub_resource type="Resource" id="Resource_g4ln7"]
 script = ExtResource("3_ryrav")
@@ -115,7 +117,10 @@ created_at = "2019-06-22T15:18:14Z"
 
 [sub_resource type="LabelSettings" id="LabelSettings_215e1"]
 font = ExtResource("10_lc2xo")
-font_size = 28
+font_size = 48
+font_color = Color(0, 0.72549, 0.745098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80cx4"]
 
 [node name="game" type="PanelContainer"]
 anchors_preset = 15
@@ -126,7 +131,7 @@ grow_vertical = 2
 theme = ExtResource("1_eow3j")
 script = ExtResource("1_fc0e3")
 maze_settings = SubResource("Resource_eow3j")
-maze_data = SubResource("Resource_hb5m1")
+maze_data = SubResource("Resource_e36ub")
 
 [node name="Modules" type="Node" parent="."]
 
@@ -144,58 +149,60 @@ eventsub = NodePath("")
 api = NodePath("")
 metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
 
-[node name="split" type="HSplitContainer" parent="."]
+[node name="tmr_level" type="Timer" parent="Modules"]
+one_shot = true
+
+[node name="vb" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="pnl_left" type="PanelContainer" parent="split"]
-layout_mode = 2
-
-[node name="vb" type="VBoxContainer" parent="split/pnl_left"]
-layout_mode = 2
-
-[node name="pnl_tools" parent="split/pnl_left/vb" instance=ExtResource("6_j5wjh")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="pnl_players" parent="split/pnl_left/vb" instance=ExtResource("7_vef74")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="split_right" type="HSplitContainer" parent="split"]
-layout_mode = 2
-
-[node name="vb" type="VBoxContainer" parent="split/split_right"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="lb_title" type="Label" parent="split/split_right/vb"]
+[node name="lb_title" type="Label" parent="vb"]
 layout_mode = 2
 text = "Catch the Fins!"
 label_settings = SubResource("LabelSettings_215e1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pnl_game_progress" parent="split/split_right/vb" instance=ExtResource("11_215e1")]
+[node name="hb" type="HBoxContainer" parent="vb"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="pnl_left" type="PanelContainer" parent="vb/hb"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_80cx4")
+
+[node name="vb" type="VBoxContainer" parent="vb/hb/pnl_left"]
 layout_mode = 2
 
-[node name="pnl_maze" parent="split/split_right/vb" instance=ExtResource("4_eow3j")]
+[node name="pnl_players" parent="vb/hb/pnl_left/vb" instance=ExtResource("7_vef74")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="pnl_tools" parent="vb/hb/pnl_left/vb" instance=ExtResource("6_j5wjh")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="vb" type="VBoxContainer" parent="vb/hb"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="pnl_maze" parent="vb/hb/vb" instance=ExtResource("4_eow3j")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+tileset_base_color = Color(0, 0.72549, 0.745098, 1)
 
-[node name="pnl_bot" type="PanelContainer" parent="split/split_right/vb"]
-custom_minimum_size = Vector2(0, 80)
+[node name="pnl_game_progress" parent="vb/hb/vb" instance=ExtResource("11_215e1")]
 layout_mode = 2
 
-[node name="pnl_info" type="PanelContainer" parent="split/split_right"]
+[node name="pnl_info" type="PanelContainer" parent="vb/hb"]
 custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 
-[node name="vb" type="VBoxContainer" parent="split/split_right/pnl_info"]
+[node name="vb" type="VBoxContainer" parent="vb/hb/pnl_info"]
 layout_mode = 2
 
-[node name="lb_info" type="RichTextLabel" parent="split/split_right/pnl_info/vb"]
+[node name="lb_info" type="RichTextLabel" parent="vb/hb/pnl_info/vb"]
 layout_mode = 2
 bbcode_enabled = true
 text = "Welcome to Catch the Fins GAME!
@@ -214,7 +221,7 @@ Verify your heat extension then refresh the browser
 Catch the Fins! (to be implemented)"
 fit_content = true
 
-[node name="tex_authorize" type="Control" parent="split/split_right/pnl_info/vb"]
+[node name="tex_authorize" type="Control" parent="vb/hb/pnl_info/vb"]
 custom_minimum_size = Vector2(337, 328)
 layout_mode = 2
 script = ExtResource("10_mfdv2")

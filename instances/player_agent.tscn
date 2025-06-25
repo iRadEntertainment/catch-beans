@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://e4r7xlhx87bh"]
+[gd_scene load_steps=12 format=3 uid="uid://e4r7xlhx87bh"]
 
 [ext_resource type="Texture2D" uid="uid://id5wo2isyu1p" path="res://graphics/fin_bg.png" id="1_iymbn"]
 [ext_resource type="Shader" uid="uid://tfakrr1mi58n" path="res://graphics/circle.gdshader" id="2_nnh0l"]
 [ext_resource type="Script" uid="uid://bvu3wqjs36uj1" path="res://instances/player_agent.gd" id="2_qjt2s"]
+[ext_resource type="FontFile" uid="uid://dau23mfxy04hj" path="res://theme/fonts/Exo-ExtraBold.otf" id="3_lfmwg"]
 [ext_resource type="FontFile" uid="uid://touqsbxl3m1g" path="res://theme/fonts/Bungee-Regular.otf" id="3_spu5n"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfmwg"]
-shader = ExtResource("2_nnh0l")
-shader_parameter/radius = 1.0
-shader_parameter/feather = 0.01
-shader_parameter/center = Vector2(0.5, 0.5)
+[ext_resource type="Shader" uid="uid://ch71wk2k4i1o1" path="res://graphics/line_highlight.gdshader" id="4_c6dp5"]
+[ext_resource type="Texture2D" uid="uid://blg1m0p80reog" path="res://graphics/shoeprint.png" id="4_udxjd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qjt2s"]
 font = ExtResource("3_spu5n")
@@ -19,14 +16,39 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.196078)
 shadow_offset = Vector2(0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udxjd"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0805058, 0.465481, 0.544331, 0.729412)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.933333, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7uws1"]
+shader = ExtResource("4_c6dp5")
+shader_parameter/main_color = Color(1, 0.933333, 0.8, 1)
+shader_parameter/accent_color = Color(1, 0.411765, 0.45098, 1)
+shader_parameter/alpha = 8.99
+shader_parameter/speed = -0.58
+shader_parameter/speed_diff = 12.83
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfmwg"]
+shader = ExtResource("2_nnh0l")
+shader_parameter/radius = 1.0
+shader_parameter/feather = 0.01
+shader_parameter/center = Vector2(0.5, 0.5)
+
 [node name="player_agent" type="Node2D"]
 script = ExtResource("2_qjt2s")
-
-[node name="sprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_lfmwg")
-scale = Vector2(0.236287, 0.236287)
-texture = ExtResource("1_iymbn")
 
 [node name="lb_name" type="Label" parent="."]
 unique_name_in_owner = true
@@ -41,3 +63,39 @@ label_settings = SubResource("LabelSettings_qjt2s")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+
+[node name="lb_text_bubble" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+z_index = 100
+z_as_relative = false
+offset_left = -218.0
+offset_top = -226.0
+offset_right = 220.0
+offset_bottom = -33.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.27451, 0.258824, 0.368627, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("3_lfmwg")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_udxjd")
+bbcode_enabled = true
+text = "This is a long message for all of you people, especially [color=red]Scawy[/color]. Remember to stay friend with [color=#8B58FF][shake]Trickylady[/shake][/color]. Stop your shitty behaviour!"
+
+[node name="line_preview_path" type="Line2D" parent="."]
+unique_name_in_owner = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7uws1")
+points = PackedVector2Array(64, 0, 64, 64, 128, 64, 128, 128, 192, 128, 256, 128, 320, 128, 384, 128)
+width = 25.0
+default_color = Color(1, 0.411765, 0.45098, 1)
+texture = ExtResource("4_udxjd")
+texture_mode = 1
+joint_mode = 2
+
+[node name="sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 10
+z_as_relative = false
+material = SubResource("ShaderMaterial_lfmwg")
+scale = Vector2(0.236287, 0.236287)
+texture = ExtResource("1_iymbn")

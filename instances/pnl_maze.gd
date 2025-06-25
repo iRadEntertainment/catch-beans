@@ -3,6 +3,17 @@ extends PanelContainer
 class_name GameMaze
 
 
+@export var tileset_img: Texture2D
+@export var tileset_dim: int = 32
+@export var tileset_base_color: Color = Color.WHITE:
+	set(val):
+		tileset_base_color = val
+		if is_node_ready():
+			%game_base_maze.self_modulate = tileset_base_color
+
+@onready var lines: Node2D = %lines
+
+
 var game: Game
 var maze_data: MazeData:
 	set(val): maze_data = val; calculate_game_properties()
@@ -17,7 +28,7 @@ var render_rect: Rect2
 func _ready() -> void:
 	resized.connect(calculate_game_properties)
 	resized.connect(%game_base_maze.queue_redraw)
-	%game_base_maze.draw.connect(draw_reticle)
+	#%game_base_maze.draw.connect(draw_reticle)
 
 
 #region Inputs (Debug)
@@ -44,6 +55,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func clear() -> void:
 	for agent: Agent in %players.get_children() + %bunnies.get_children():
 		agent.queue_free()
+	for line: Line2D in %lines.get_children():
+		line.queue_free()
 func add_player_agent(new_player_agent: PlayerAgent) -> void:
 	%players.add_child(new_player_agent)
 func add_bunny_agent(new_bunny_agent: BunnyAgent) -> void:
@@ -73,15 +86,74 @@ func calculate_game_properties() -> void:
 
 func render_maze() -> void:
 	calculate_game_properties()
-	var img_covino: Image = Image.create(maze_size.x, maze_size.y, false, Image.FORMAT_RGBAF)
+	#var img_covino: Image = Image.create(maze_size.x, maze_size.y, false, Image.FORMAT_RGBAF)
+	#for x in maze_size.x:
+		#for y in maze_size.y:
+			#var p: Vector2i = Vector2i(x, y)
+			#var is_maze: bool = maze_data.is_maze(p)
+			#var col: Color = Color.AZURE if is_maze else Color("3f6899")
+			#img_covino.set_pixelv(p, col)
+	
+	
+	var tile_img: Image = tileset_img.get_image()
+	var img_full_res: Vector2i = maze_size * tileset_dim
+	var img_test_tilemap: Image = Image.create(img_full_res.x, img_full_res.y, false, tile_img.get_format())
+	
 	for x in maze_size.x:
 		for y in maze_size.y:
 			var p: Vector2i = Vector2i(x, y)
-			var is_maze: bool = maze_data.is_maze(p)
-			var col: Color = Color.AZURE if is_maze else Color("3f6899")
-			img_covino.set_pixelv(p, col)
-	%game_base_maze.texture = ImageTexture.create_from_image(img_covino)
+			draw_tile_at_pos(p, img_test_tilemap, tile_img)
+	
+	%game_base_maze.texture = ImageTexture.create_from_image(img_test_tilemap)
 	%game_base_maze.queue_redraw()
+
+
+func draw_tile_at_pos(p: Vector2i, dst: Image, src: Image) -> void:
+	var is_maze: bool = maze_data.is_maze(p)
+	var src_rect: Rect2i = Rect2i(0, 0, tileset_dim, tileset_dim)
+	if is_maze:
+		if (p.x + p.y) % 2 == 0:
+			src_rect.position = Vector2i(4, 0) * tileset_dim
+		else:
+			src_rect.position = Vector2i(4, 1) * tileset_dim
+		dst.blend_rect(src, src_rect, p * tileset_dim)
+		return
+	
+	var bit_neighbors: int = 0b0000 # UP, LEFT, DOWN, RIGHT 0b
+	for i: int in 4:
+		var dir: Vector2i = [Vector2i.RIGHT, Vector2i.DOWN, Vector2i.LEFT, Vector2i.UP][i]
+		var n_p: Vector2i = p + dir
+		if maze_data.is_maze(n_p):
+			continue
+		if !Rect2i(Vector2i.ZERO, maze_size).has_point(n_p):
+			continue
+		bit_neighbors += 0b1 << i
+	
+	match bit_neighbors:
+		# single
+		0b0000: src_rect.position = Vector2i(0, 0) * tileset_dim
+		# vert
+		0b0010: src_rect.position = Vector2i(0, 1) * tileset_dim
+		0b1010: src_rect.position = Vector2i(0, 2) * tileset_dim
+		0b1000: src_rect.position = Vector2i(0, 3) * tileset_dim
+		# horiz
+		0b0001: src_rect.position = Vector2i(1, 0) * tileset_dim
+		0b0101: src_rect.position = Vector2i(2, 0) * tileset_dim
+		0b0100: src_rect.position = Vector2i(3, 0) * tileset_dim
+		#corners
+		0b0011: src_rect.position = Vector2i(1, 1) * tileset_dim
+		0b0110: src_rect.position = Vector2i(2, 1) * tileset_dim
+		0b1100: src_rect.position = Vector2i(2, 2) * tileset_dim
+		0b1001: src_rect.position = Vector2i(1, 2) * tileset_dim
+		#cross
+		0b1111: src_rect.position = Vector2i(1, 3) * tileset_dim
+		#T-junctions
+		0b1011: src_rect.position = Vector2i(3, 1) * tileset_dim
+		0b0111: src_rect.position = Vector2i(3, 2) * tileset_dim
+		0b1110: src_rect.position = Vector2i(3, 3) * tileset_dim
+		0b1101: src_rect.position = Vector2i(2, 3) * tileset_dim
+	
+	dst.blend_rect(src, src_rect, p * tileset_dim)
 #endregion
 
 

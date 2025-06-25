@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://q10dsaf7lk62"]
+[gd_scene load_steps=6 format=3 uid="uid://q10dsaf7lk62"]
 
 [ext_resource type="Script" uid="uid://tt1s831awvkl" path="res://instances/pnl_players.gd" id="1_siqwo"]
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_wiu1i"]
 [ext_resource type="StyleBox" uid="uid://behql6kuhdfgw" path="res://theme/pnl_dark.stylebox" id="2_wiu1i"]
+[ext_resource type="PackedScene" uid="uid://bwxbvxdqo0fvp" path="res://instances/player_entry.tscn" id="4_2bdfx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_siqwo"]
+font_color = Color(1, 0.933333, 0.8, 1)
 
 [node name="pnl_players" type="PanelContainer"]
 offset_right = 264.0
@@ -28,9 +30,13 @@ layout_mode = 2
 [node name="scr" type="ScrollContainer" parent="vb"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="vb_list_players" type="VBoxContainer" parent="vb/scr"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="player_entry" parent="vb/scr/vb_list_players" instance=ExtResource("4_2bdfx")]
+layout_mode = 2

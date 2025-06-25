@@ -1,13 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpvcxvvskfgbb"]
+[gd_scene load_steps=5 format=3 uid="uid://cpvcxvvskfgbb"]
 
 [ext_resource type="Script" uid="uid://1ndduchq1b2p" path="res://instances/pnl_tools.gd" id="1_4ljis"]
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_vaxje"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vaxje"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_vaxje"]
+font_size = 23
+font_color = Color(1, 0.411765, 0.45098, 1)
 
 [node name="pnl_tools" type="PanelContainer"]
 custom_minimum_size = Vector2(256, 0)
+offset_right = 499.0
+offset_bottom = 270.0
 theme = ExtResource("1_vaxje")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vaxje")
 script = ExtResource("1_4ljis")
 
 [node name="vb" type="VBoxContainer" parent="."]
@@ -21,8 +28,9 @@ layout_mode = 2
 
 [node name="lb_title" type="Label" parent="vb/pnl_generate/vb"]
 layout_mode = 2
-text = "Generate Maze"
+text = "Maze"
 label_settings = SubResource("LabelSettings_vaxje")
+horizontal_alignment = 1
 
 [node name="sep" type="HSeparator" parent="vb/pnl_generate/vb"]
 layout_mode = 2
@@ -31,6 +39,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="lb" type="Label" parent="vb/pnl_generate/vb/hb"]
+visible = false
 layout_mode = 2
 text = "seed"
 
@@ -40,8 +49,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Temptic404"
 placeholder_text = "maze seed"
+alignment = 1
 
 [node name="hb2" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+visible = false
 layout_mode = 2
 
 [node name="lb" type="Label" parent="vb/pnl_generate/vb/hb2"]
@@ -75,17 +86,19 @@ layout_mode = 2
 text = "y"
 
 [node name="hb3" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+visible = false
 layout_mode = 2
 
 [node name="lb" type="Label" parent="vb/pnl_generate/vb/hb3"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-text = "noise treshhold"
+text = "tresh"
 
 [node name="sl_treshold" type="HSlider" parent="vb/pnl_generate/vb/hb3"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 max_value = 1.0
 step = 0.005
 value = 0.5
@@ -96,17 +109,19 @@ layout_mode = 2
 text = "0.560"
 
 [node name="hb4" type="HBoxContainer" parent="vb/pnl_generate/vb"]
+visible = false
 layout_mode = 2
 
 [node name="lb" type="Label" parent="vb/pnl_generate/vb/hb4"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-text = "noise resolution"
+text = "res"
 
 [node name="sl_resolution" type="HSlider" parent="vb/pnl_generate/vb/hb4"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 min_value = 1.0
 step = 0.1
 value = 15.0

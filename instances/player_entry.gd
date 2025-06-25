@@ -14,10 +14,10 @@ var agent: PlayerAgent
 
 
 func _ready() -> void:
-	clear_dirs()
+	#clear_dirs()
 	if agent:
-		agent.move_queue_updated.connect(_on_agent_move_queue_updated)
-		agent.move_finished.connect(update_dirs)
+		#agent.move_queue_updated.connect(_on_agent_move_queue_updated) # TODO: remove this
+		#agent.move_finished.connect(update_dirs)
 		agent.score_updated.connect(update_scores)
 		update()
 		update_scores()
@@ -41,26 +41,26 @@ func remove_last_dir() -> void:
 		return
 	
 
+#TODO: check if keep or not
+#func update_dirs() -> void:
+	#clear_dirs()
+	#for dir: Vector2i in agent._move_queue:
+		#var new_dir_texture := TextureRect.new()
+		#new_dir_texture.name = "dir%02d" % agent.moves_left()
+		#new_dir_texture.texture = DIR_ICONS.get(dir)
+		#new_dir_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		#new_dir_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		#new_dir_texture.custom_minimum_size = Vector2.ONE * DIR_ARROW_SIZE
+		#%cnt_dirs.add_child(new_dir_texture)
+#
+#
+#func clear_dirs() -> void:
+	#for child: Control in %cnt_dirs.get_children():
+		#child.free()
 
-func update_dirs() -> void:
-	clear_dirs()
-	for dir: Vector2i in agent._move_queue:
-		var new_dir_texture := TextureRect.new()
-		new_dir_texture.name = "dir%02d" % agent.moves_left()
-		new_dir_texture.texture = DIR_ICONS.get(dir)
-		new_dir_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		new_dir_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		new_dir_texture.custom_minimum_size = Vector2.ONE * DIR_ARROW_SIZE
-		%cnt_dirs.add_child(new_dir_texture)
 
-
-func clear_dirs() -> void:
-	for child: Control in %cnt_dirs.get_children():
-		child.free()
-
-
-func _on_agent_move_queue_updated() -> void:
-	update_dirs()
+#func _on_agent_move_queue_updated() -> void:
+	#update_dirs()
 
 
 static func from_agent(_agent: PlayerAgent) -> PlayerEntry:

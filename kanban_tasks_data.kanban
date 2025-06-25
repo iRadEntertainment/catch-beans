@@ -1,0 +1,74 @@
+{
+	"categories": [
+		{
+			"uuid": "c365a63b-d572-48c1-98e2-4bee48e3a0b2",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "e0ddc4a8-04bc-4779-b7e9-faf5fb21e847",
+			"title": "Todo",
+			"tasks": [
+				"51abef66-94d0-4f5b-a488-d61de168f53b",
+				"9ee81790-5988-425d-90e7-504dfade5986",
+				"17e01926-e16c-421a-b422-58faa4709a6e",
+				"8e4244d5-58f7-4cd5-9ff1-f0f6b880396c"
+			]
+		},
+		{
+			"uuid": "134142a2-ccf2-4468-867e-154c6207fb04",
+			"title": "Doing",
+			"tasks": []
+		},
+		{
+			"uuid": "ca12d975-c09f-4222-a714-15b441b41d67",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "51abef66-94d0-4f5b-a488-d61de168f53b",
+			"title": "Stack bunnies",
+			"description": "",
+			"category": "c365a63b-d572-48c1-98e2-4bee48e3a0b2",
+			"steps": []
+		},
+		{
+			"uuid": "9ee81790-5988-425d-90e7-504dfade5986",
+			"title": "Start/wait game state",
+			"description": "",
+			"category": "c365a63b-d572-48c1-98e2-4bee48e3a0b2",
+			"steps": []
+		},
+		{
+			"uuid": "17e01926-e16c-421a-b422-58faa4709a6e",
+			"title": "Level transition and difficulty scalability",
+			"description": "",
+			"category": "c365a63b-d572-48c1-98e2-4bee48e3a0b2",
+			"steps": []
+		},
+		{
+			"uuid": "8e4244d5-58f7-4cd5-9ff1-f0f6b880396c",
+			"title": "Leaderboard (local)",
+			"description": "",
+			"category": "c365a63b-d572-48c1-98e2-4bee48e3a0b2",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"e0ddc4a8-04bc-4779-b7e9-faf5fb21e847"
+			],
+			[
+				"134142a2-ccf2-4468-867e-154c6207fb04"
+			],
+			[
+				"ca12d975-c09f-4222-a714-15b441b41d67"
+			]
+		]
+	}
+}
