@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwxbvxdqo0fvp"]
+[gd_scene load_steps=8 format=3 uid="uid://bwxbvxdqo0fvp"]
 
 [ext_resource type="Theme" uid="uid://cnpe1ffq6omh3" path="res://theme/main.theme" id="1_ix8j4"]
 [ext_resource type="Script" uid="uid://b6l3j77diyt01" path="res://instances/player_entry.gd" id="1_sn12l"]
 [ext_resource type="Texture2D" uid="uid://id5wo2isyu1p" path="res://graphics/fin_bg.png" id="2_cucqx"]
-[ext_resource type="Texture2D" uid="uid://buc3o2og7ivcv" path="res://theme/UI/arrow-down-circle-fill.png" id="4_ix8j4"]
 [ext_resource type="FontFile" uid="uid://bqvdwdtmyxyu7" path="res://theme/fonts/Exo-Black.otf" id="5_x3c16"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wkjnn"]
@@ -46,34 +45,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "finisfine"
-
-[node name="cnt_dirs" type="HFlowContainer" parent="hb/vb"]
-unique_name_in_owner = true
-modulate = Color(1, 0.411765, 0.45098, 1)
-layout_mode = 2
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-
-[node name="dir01" type="TextureRect" parent="hb/vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="dir02" type="TextureRect" parent="hb/vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="dir03" type="TextureRect" parent="hb/vb/cnt_dirs"]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-texture = ExtResource("4_ix8j4")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="grid_score" type="GridContainer" parent="hb"]
 layout_mode = 2

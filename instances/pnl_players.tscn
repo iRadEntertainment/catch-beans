@@ -30,6 +30,7 @@ layout_mode = 2
 [node name="scr" type="ScrollContainer" parent="vb"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="vb_list_players" type="VBoxContainer" parent="vb/scr"]
 unique_name_in_owner = true

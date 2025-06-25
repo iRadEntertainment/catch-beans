@@ -17,52 +17,54 @@
 
 [sub_resource type="Resource" id="Resource_eow3j"]
 script = ExtResource("2_ryrav")
-maze_size = Vector2i(25, 17)
+maze_size_preset = 0
+maze_size = Vector2i(19, 13)
 maze_seed = "Hypnotik_Games"
 noise_threshold = 0.55
 noise_resolution = 15.0
 bunnies_count = 8
+level_time = 60.0
 metadata/_custom_type_script = "uid://d1x5rsvv6vse3"
 
 [sub_resource type="BitMap" id="BitMap_215e1"]
 data = {
-"data": PackedByteArray(255, 255, 255, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 1, 0, 0, 3, 0, 0, 6, 0, 0, 12, 0, 0, 24, 0, 0, 48, 0, 0, 96, 0, 0, 192, 0, 0, 128, 255, 255, 255, 1),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(255, 255, 15, 0, 96, 0, 0, 3, 0, 24, 0, 192, 0, 0, 6, 0, 48, 0, 128, 1, 0, 12, 0, 96, 0, 0, 3, 0, 248, 255, 127),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_7sc4i"]
 data = {
-"data": PackedByteArray(0, 0, 0, 0, 0, 0, 80, 85, 1, 0, 0, 0, 64, 85, 85, 5, 0, 0, 0, 85, 85, 21, 0, 0, 0, 68, 16, 85, 0, 0, 0, 16, 84, 84, 1, 0, 0, 64, 85, 65, 5, 0, 0, 0, 85, 21, 17, 0, 0, 0, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 0, 0, 0, 85, 20, 0, 0, 64, 81, 21, 0, 0, 80, 85, 5, 0, 0, 68, 1, 1, 0, 0, 65, 1, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_80cx4"]
 data = {
-"data": PackedByteArray(0, 0, 0, 20, 64, 0, 0, 0, 0, 64, 4, 1, 0, 0, 0, 0, 0, 64, 16, 0, 0, 0, 0, 0, 1, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 1, 1, 0, 0, 0, 0, 0, 5, 64, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 80, 0, 1, 0, 0, 16, 0, 0, 0, 0, 0, 0, 1, 0, 64, 16, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_e8heu"]
 data = {
-"data": PackedByteArray(0, 0, 0, 52, 192, 0, 8, 0, 0, 80, 6, 1, 160, 0, 2, 0, 0, 96, 16, 0, 0, 32, 0, 0, 67, 0, 0, 128, 4, 0, 22, 9, 0, 32, 2, 0, 64, 4, 0, 128, 72, 131, 1, 128, 128, 0, 32, 0, 13, 64, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 208, 3, 131, 0, 0, 52, 0, 32, 0, 0, 0, 0, 1, 0, 200, 48, 64, 0, 0, 18, 0, 128, 0, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_rvswv"]
 data = {
-"data": PackedByteArray(0, 0, 0, 244, 223, 255, 137, 40, 254, 83, 87, 253, 167, 162, 138, 194, 127, 125, 149, 128, 34, 42, 223, 119, 95, 184, 239, 160, 244, 255, 87, 233, 131, 163, 242, 255, 95, 5, 34, 190, 74, 255, 125, 159, 160, 232, 46, 127, 221, 95, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 208, 127, 159, 160, 227, 244, 125, 39, 142, 10, 255, 87, 1, 136, 202, 247, 95, 56, 254, 210, 255, 159, 62, 254, 252, 255, 7, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="BitMap" id="BitMap_boyg6"]
 data = {
-"data": PackedByteArray(0, 0, 0, 8, 32, 0, 32, 130, 0, 160, 168, 2, 0, 8, 32, 8, 128, 130, 10, 42, 136, 0, 32, 136, 32, 2, 0, 10, 8, 0, 168, 0, 40, 8, 0, 0, 160, 162, 136, 0, 128, 0, 130, 0, 10, 2, 0, 128, 34, 32, 0, 0, 0, 0),
-"size": Vector2i(25, 17)
+"data": PackedByteArray(0, 0, 32, 128, 0, 10, 8, 8, 130, 128, 32, 32, 0, 168, 168, 34, 0, 8, 32, 130, 0, 32, 0, 0, 128, 0, 0, 0, 0, 0, 0),
+"size": Vector2i(19, 13)
 }
 
 [sub_resource type="Resource" id="Resource_e36ub"]
 script = ExtResource("4_vef74")
-maze_size = Vector2i(25, 17)
+maze_size = Vector2i(19, 13)
 maze_seed = "Hypnotik_Games"
 btm_boundaries = SubResource("BitMap_215e1")
 btm_corners = SubResource("BitMap_7sc4i")
@@ -142,10 +144,13 @@ metadata/_custom_type_script = "uid://dgvhbnev8dowm"
 script = ExtResource("7_lc2xo")
 broadcaster_user = SubResource("Resource_215e1")
 sender_user = SubResource("Resource_7sc4i")
-media_loader = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/MediaLoader")
-eventsub = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/EventSub")
-api = NodePath("../../../../../../../../../../../../../../../../../../../../../../Twitch/API")
+media_loader = NodePath("")
+eventsub = NodePath("")
+api = NodePath("")
 metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
+
+[node name="tmr_level" type="Timer" parent="Modules"]
+one_shot = true
 
 [node name="vb" type="VBoxContainer" parent="."]
 layout_mode = 2

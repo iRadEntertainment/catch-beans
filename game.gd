@@ -6,13 +6,13 @@ class_name Game
 @export var maze_settings: MazeSettings
 @warning_ignore("unused_private_class_variable")
 @export_tool_button("Generate", "Button") var _do_it = do_it
+@export var maze_data: MazeData
 
 @onready var pnl_maze: GameMaze = %pnl_maze
 @onready var pnl_tools: GameTools = %pnl_tools
 @onready var pnl_players: GamePlayers = %pnl_players
 
 
-@export var maze_data: MazeData
 var state: GameState
 var l: TwitchLogger = TwitchLogger.new("Game")
 
@@ -24,12 +24,14 @@ signal bunnies_moves_finished
 var last_click: Vector2
 
 
-# i was here
+# i was here # konrad
 func _ready() -> void:
 	pnl_maze.game = self
 	l.enabled = true
 	l.debug = true
 	if Engine.is_editor_hint():
+		if maze_settings:
+			maze_settings.maze_size_updated.connect(reset)
 		return
 	
 	# in game
@@ -37,7 +39,7 @@ func _ready() -> void:
 	pnl_tools.generate_maze_pressed.connect(_on_generate_maze_pressed)
 	pnl_tools.game = self
 	pnl_tools.update_from_current_settings()
-	generate_maze()
+	reset()
 
 
 func _input(event: InputEvent) -> void:
@@ -59,15 +61,20 @@ func do_it() -> void:
 	generate_maze()
 
 
+func reset() -> void:
+	l.i("Reset game")
+	clear()
+	generate_maze()
+	state = GameState.new(self)
+	add_bunnies()
+
+
 func generate_maze() -> void:
 	l.i("Generating maze")
-	clear()
 	maze_data = MazeGen.generate_maze(maze_settings)
 	maze_data.regen_btms_dead_end()
-	state = GameState.new(self)
 	pnl_maze.render_maze()
-	await get_tree().process_frame
-	add_bunnies()
+	#await get_tree().process_frame
 
 
 func setup_twitcher() -> void:
@@ -178,7 +185,7 @@ func _on_bunny_move_queue_finished(_bunny_agent: BunnyAgent) -> void:
 #region Signals
 func _on_generate_maze_pressed(_settings: MazeSettings) -> void:
 	maze_settings = _settings
-	generate_maze()
+	reset()
 
 
 func _on_heat_service_input_event(event: HeatInputEvent) -> void:
@@ -210,6 +217,7 @@ func _on_chat_user_leave(
 	Twitch.chat("%s you can NEVER leave!" % from_username)
 
 
+# Ategon was here
 func _on_chat_user_cat(
 			_from_username: String,
 			_info: TwitchCommandInfo,
@@ -223,16 +231,22 @@ func _on_chat_new(
 			_info: TwitchCommandInfo,
 			args: PackedStringArray
 		) -> void:
-	maze_settings.maze_seed = str(args[0])
-	generate_maze()
+	var maze_seed: String = str(args[0])
+	maze_settings.maze_seed = maze_seed
+	reset()
 
 
 func _on_twitch_chat_message_received(t_message: TwitchChatMessage) -> void:
 	var user_id: int = int(t_message.chatter_user_id)
 	if !state.player_agents.has(user_id):
 		return
-	var unparsed_dir: PackedStringArray = t_message.message.text.to_lower().split()
-	parse_chat_movement(user_id, unparsed_dir)
+	var player: PlayerAgent = state.player_agents[user_id]
+	var message: String = (t_message.message.text).strip_edges()
+	if message.begins_with("!"):
+		var unparsed_dir: PackedStringArray = message.to_lower().split()
+		parse_chat_movement(user_id, unparsed_dir)
+	else:
+		player.popup_message(message)
 
 
 func parse_chat_movement(user_id: int, unparsed_dir: PackedStringArray) -> void:
@@ -241,6 +255,7 @@ func parse_chat_movement(user_id: int, unparsed_dir: PackedStringArray) -> void:
 		printerr("Parsing movementes: No agent found with ID %s" % user_id)
 		return
 	var dirs: Array[Vector2i] = []
+	var iter: int = 0
 	for s: String in unparsed_dir:
 		match s.to_lower():
 			"w": dirs.append(Vector2i.UP)
@@ -248,6 +263,9 @@ func parse_chat_movement(user_id: int, unparsed_dir: PackedStringArray) -> void:
 			"a": dirs.append(Vector2i.LEFT)
 			"d": dirs.append(Vector2i.RIGHT)
 			"_": pass
+		iter += 1
+		if iter >= Agent.MAX_QUEUE:
+			break
 	
 	agent.add_move_directions(dirs)
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlveg212uywo5"]
+[gd_scene load_steps=6 format=3 uid="uid://dlveg212uywo5"]
 
 [ext_resource type="Script" uid="uid://bbw7vfljawbfe" path="res://instances/pnl_maze.gd" id="1_jm2b6"]
 [ext_resource type="Texture2D" uid="uid://teqaufwpgt6v" path="res://graphics/tileset_test.png" id="2_0fouu"]
-[ext_resource type="PackedScene" uid="uid://cvbmhtrettp58" path="res://instances/path_line.tscn" id="2_jm2b6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm2b6"]
 bg_color = Color(0.27451, 0.258824, 0.368627, 1)
@@ -46,10 +45,6 @@ stretch_mode = 5
 
 [node name="lines" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
-
-[node name="Line2D" parent="lines" instance=ExtResource("2_jm2b6")]
-points = PackedVector2Array(552, 158, 571, 138, 587, 153, 596, 130, 626, 141, 747, 130, 747, 147, 766, 147, 766, 179)
 
 [node name="bunnies" type="Node2D" parent="."]
 unique_name_in_owner = true

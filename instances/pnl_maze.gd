@@ -11,6 +11,9 @@ class_name GameMaze
 		if is_node_ready():
 			%game_base_maze.self_modulate = tileset_base_color
 
+@onready var lines: Node2D = %lines
+
+
 var game: Game
 var maze_data: MazeData:
 	set(val): maze_data = val; calculate_game_properties()
@@ -52,6 +55,8 @@ func _on_gui_input(event: InputEvent) -> void:
 func clear() -> void:
 	for agent: Agent in %players.get_children() + %bunnies.get_children():
 		agent.queue_free()
+	for line: Line2D in %lines.get_children():
+		line.queue_free()
 func add_player_agent(new_player_agent: PlayerAgent) -> void:
 	%players.add_child(new_player_agent)
 func add_bunny_agent(new_bunny_agent: BunnyAgent) -> void:
